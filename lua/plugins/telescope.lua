@@ -6,6 +6,7 @@ lvim.builtin.telescope.theme = "center"
 
 lvim.builtin.telescope.on_config_done = function(telescope)
   pcall(telescope.load_extension, "recent_files")
+  pcall(telescope.load_extension, "flutter")
 end
 
 lvim.builtin.telescope.pickers.find_files = {
@@ -18,6 +19,8 @@ lvim.builtin.telescope.pickers.find_files = {
     "!node_modules",
     "-g",
     "!.git",
+    "-g",
+    "!.nuxt/*",
     "-g",
     "!.next",
   },

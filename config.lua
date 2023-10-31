@@ -1,5 +1,3 @@
--- Read the docs: https://www.lunarvim.org/docs/configuration
--- Video Tutorials: https://www.youtube.com/watch?v=sFA9kX-Ud_c&list=PLhoH5vyxr6QqGu0i7tt_XoVK9v-KvZ3m6
 -- Forum: https://www.reddit.com/r/lunarvim/
 -- Discord: https://discord.com/invite/Xb9B4Ny
 
@@ -14,6 +12,7 @@ reload "plugins.htop"
 reload "plugins.telescope"
 reload "plugins.nvimtree"
 reload "plugins.barbar"
+reload "plugins.flutter"
 
 -- Activate loading screen
 -- lvim.builtin.alpha.active = true
@@ -29,3 +28,31 @@ vim.api.nvim_create_autocmd("vimenter", {
     end, 1)
   end,
 })
+
+local formatters = require "lvim.lsp.null-ls.formatters"
+formatters.setup {
+  {
+    command = "prettier",
+    filetypes = { "typescript", "astro", "typescriptreact", "vue", "javascript", "javascriptreact" },
+  },
+}
+
+-- Create a key mapping for 'gd' to call the goToDefinition function
+-- vim.api.nvim_set_keymap('n', 'gd', '<cmd>lua GoToDefinition()<CR>', { noremap = true, silent = true })
+
+-- local function run_flutter_save()
+
+--   vim.api.nvim_command(":FlutterReload")
+
+-- end
+
+-- vim.api.nvim_create_autocmd("BufWritePost", { callback = run_flutter_save() })
+
+
+-- local linters = require "lvim.lsp.null-ls.linters"
+-- linters.setup {
+--   {
+--     command = "eslint",
+--     filetypes = { "typescript", "typescriptreact", "vue", "javascript", "javascriptreact" },
+--   }
+-- }

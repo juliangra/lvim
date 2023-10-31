@@ -45,6 +45,8 @@ lvim.keys.normal_mode["<leader>to"] = ":tabnew<CR>"
 -- Restart LSP
 lvim.keys.normal_mode["<leader>rl"] = ":LspRestart<cr>"
 
+lvim.keys.normal_mode["<leader>ro"] = ":FlutterReload<cr>"
+
 -- Remove default mapping for <leader>q and replace with close_buffers
 lvim.builtin.which_key.mappings["q"] = {}
 lvim.keys.normal_mode["<leader>q"] = "<CMD>lua require('close_buffers').delete({type = 'this'})<CR>"
@@ -59,6 +61,7 @@ lvim.builtin.which_key.mappings.f = {}
 
 lvim.keys.normal_mode["<leader>ff"] = "<cmd>Telescope find_files<CR>"
 lvim.keys.normal_mode["<leader><leader>"] = "<cmd>lua require('telescope').extensions.recent_files.pick()<CR>"
+lvim.keys.normal_mode["<leader>fo"] = "<cmd>lua require('telescope').extensions.flutter.commands()<CR>"
 lvim.keys.normal_mode["<leader>fr"] = "<cmd>Telescope git_files<CR>"
 lvim.keys.normal_mode["<leader>fg"] = "<cmd>Telescope live_grep<CR>"
 lvim.keys.normal_mode["<leader>ft"] = "<cmd>NvimTreeFindFile<CR>"
@@ -73,6 +76,35 @@ lvim.keys.normal_mode["x"] = '"_x'
 lvim.keys.normal_mode["<leader>md"] = { "<cmd>lua require('neogen').generate()<CR>" }
 
 
+-- function customNuxtSkipComponents()
+--   -- Add your custom logic here
+--   -- This function will be called when you run :NuxtSkipComponents
+--   vim.lsp.buf.definition()
+--   print("Custom Go To Definition command executed")
+-- end
+
+
+function nuxtSkipComponentsFile()
+  local util = require 'vim.lsp.util'
+  local params = util.make_position_params()
+  vim.lsp.buf.definition()
+
+  vim.lsp.buf_request(0, 'textDocument/definition', params, function()
+    local new_file = vim.fn.expand('%:t')
+    if new_file == 'components.d.ts' then
+      vim.cmd('normal f.gf') -- For example, open a split window with a specific file
+    end
+  end)
+end
+
+vim.cmd [[
+  command! NuxtSkipComponents lua nuxtSkipComponentsFile()
+]]
+
+lvim.lsp.buffer_mappings.normal_mode["gd"] = { "<cmd>NuxtSkipComponents<CR>" }
+
+-- lvim.builtin.cmp.mapping["<tab>"] = nil
+-- vim.api.nvim_set_keymap('n', 'gd', '<cmd>lua NuxtSkipComponents()<CR>', { noremap = true, silent = true })
 
 
 -- Terminal
