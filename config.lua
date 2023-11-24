@@ -1,7 +1,6 @@
 -- Forum: https://www.reddit.com/r/lunarvim/
 -- Discord: https://discord.com/invite/Xb9B4Ny
 
-
 -- Format on save
 lvim.format_on_save = true
 
@@ -34,8 +33,17 @@ formatters.setup {
   {
     command = "prettier",
     filetypes = { "typescript", "astro", "typescriptreact", "vue", "javascript", "javascriptreact" },
-  },
+  }
 }
+
+local linters = require "lvim.lsp.null-ls.linters"
+linters.setup {
+  {
+    command = "eslint_d",
+    filetypes = { "typescript", "astro", "typescriptreact", "vue", "javascript", "javascriptreact" },
+  }
+}
+
 
 -- Create a key mapping for 'gd' to call the goToDefinition function
 -- vim.api.nvim_set_keymap('n', 'gd', '<cmd>lua GoToDefinition()<CR>', { noremap = true, silent = true })
