@@ -10,6 +10,8 @@ lvim.builtin.which_key.mappings["8"] = { "<cmd>lua require('bufferline').go_to_b
 lvim.builtin.which_key.mappings["9"] = { "<cmd>lua require('bufferline').go_to_buffer(9, true)<cr>", "Go to buffer 9" }
 
 
+
+-- Unset <tab> and <S-tab> mappings
 lvim.builtin.cmp.mapping["<tab>"] = nil
 lvim.builtin.cmp.mapping["<S-tab>"] = nil
 
@@ -74,6 +76,10 @@ lvim.keys.normal_mode["x"] = '"_x'
 
 -- Add JsDoc
 lvim.keys.normal_mode["<leader>md"] = { "<cmd>lua require('neogen').generate()<CR>" }
+
+
+-- Switch nvimtree sidebar side to right
+lvim.builtin.nvimtree.setup.view.side = "right"
 
 
 -- function customNuxtSkipComponents()
