@@ -78,10 +78,6 @@ lvim.keys.normal_mode["x"] = '"_x'
 lvim.keys.normal_mode["<leader>md"] = { "<cmd>lua require('neogen').generate()<CR>" }
 
 
--- Switch nvimtree sidebar side to right
-lvim.builtin.nvimtree.setup.view.side = "right"
-
-
 -- function customNuxtSkipComponents()
 --   -- Add your custom logic here
 --   -- This function will be called when you run :NuxtSkipComponents
