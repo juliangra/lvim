@@ -52,9 +52,29 @@ lvim.plugins = {
   },
   -- Close buffers
   { "kazhala/close-buffers.nvim" },
+  -- Diagnostic - Trouble (v3 Beta)
   {
     "folke/trouble.nvim",
+    branch = "dev", -- IMPORTANT!
     dependencies = { "nvim-tree/nvim-web-devicons" },
+    keys = {
+      {
+        "<leader>dd",
+        "<cmd>Trouble diagnostics toggle focus=true<cr>",
+        desc = "Diagnostics (Trouble)",
+      },
+      {
+        "<leader>cs",
+        "<cmd>Trouble lsp_document_symbols toggle win.position=right focus=false<cr>",
+        desc = "Symbols (Trouble)",
+      },
+      {
+        "<leader>cl",
+        "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+        desc = "LSP Definitions / references / ... (Trouble)",
+      },
+    },
+    opts = {}, -- for default options, refer to the configuration section for custom setup.
   },
   -- Telescope recent files
   { "smartpde/telescope-recent-files" },
@@ -156,5 +176,10 @@ lvim.plugins = {
   -- KanaGawa color scheme
   {
     'rebelot/kanagawa.nvim'
+  },
+  {
+    'christoomey/vim-tmux-navigator',
+    lazy = false,
   }
+
 }

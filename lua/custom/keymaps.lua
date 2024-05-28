@@ -11,6 +11,18 @@ lvim.builtin.which_key.mappings["9"] = { "<cmd>lua require('bufferline').go_to_b
 
 
 
+
+lvim.keys.normal_mode["<C-h>"] = nil
+lvim.keys.normal_mode["<C-j>"] = nil
+lvim.keys.normal_mode["<C-k>"] = nil
+lvim.keys.normal_mode["<C-l>"] = nil
+
+-- lvim.keys.normal_mode["<C-h>"] = "<cmd>:TmuxNavigateLeft<CR>"
+-- lvim.keys.normal_mode["<C-j>"] = "<cmd>:TmuxNavigateDown<CR>"
+-- lvim.keys.normal_mode["<C-k>"] = "<cmd>:TmuxNavigateUp<CR>"
+-- lvim.keys.normal_mode["<C-l>"] = "<cmd>:TmuxNavigateRight<CR>"
+
+
 -- Unset <tab> and <S-tab> mappings
 lvim.builtin.cmp.mapping["<tab>"] = nil
 lvim.builtin.cmp.mapping["<S-tab>"] = nil
@@ -38,8 +50,9 @@ lvim.builtin.which_key.mappings.g.g = {}
 lvim.keys.normal_mode["<leader>gg"] = "<cmd>:LazyGit <cr>"
 
 
-lvim.builtin.which_key.mappings.d.d = {}
-lvim.keys.normal_mode["<leader>dd"] = "<cmd>:TroubleToggle <cr>"
+-- Remove old <leader>dd mapping and replace with TroubleToggle (diagnostics)
+-- lvim.builtin.which_key.mappings.d.d = {}
+-- lvim.keys.normal_mode["<leader>dd"] = "<cmd>:TroubleToggle <cr>"
 
 lvim.keys.normal_mode["<leader>rn"] = "<cmd>lua vim.lsp.buf.rename()<cr>"
 lvim.keys.normal_mode["<leader>to"] = ":tabnew<CR>"
