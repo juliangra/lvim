@@ -4,5 +4,9 @@ linters.setup {
   {
     command = "eslint",
     filetypes = { "typescript", "astro", "typescriptreact", "vue", "javascript", "javascriptreact" },
+  },
+  {
+    command = "protolint",
+    filetypes = { "proto" },
   }
 }

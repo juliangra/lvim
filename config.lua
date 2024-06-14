@@ -63,6 +63,7 @@ reload "configs.linters"
 --
 --
 reload "configs.volar"
+reload "configs.tailwindcss"
 
 
 --  ############################

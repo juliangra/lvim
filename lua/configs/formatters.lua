@@ -9,5 +9,5 @@ formatters.setup {
   {
     command = "rustfmt",
     filetypes = { "rust" },
-  }
+  },
 }

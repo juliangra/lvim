@@ -10,18 +10,15 @@ lvim.builtin.which_key.mappings["8"] = { "<cmd>lua require('bufferline').go_to_b
 lvim.builtin.which_key.mappings["9"] = { "<cmd>lua require('bufferline').go_to_buffer(9, true)<cr>", "Go to buffer 9" }
 
 
-
-
-lvim.keys.normal_mode["<C-h>"] = nil
-lvim.keys.normal_mode["<C-j>"] = nil
-lvim.keys.normal_mode["<C-k>"] = nil
-lvim.keys.normal_mode["<C-l>"] = nil
+lvim.keys.normal_mode["<C-h>"] = false
+lvim.keys.normal_mode["<C-j>"] = false
+lvim.keys.normal_mode["<C-k>"] = false
+lvim.keys.normal_mode["<C-l>"] = false
 
 -- lvim.keys.normal_mode["<C-h>"] = "<cmd>:TmuxNavigateLeft<CR>"
 -- lvim.keys.normal_mode["<C-j>"] = "<cmd>:TmuxNavigateDown<CR>"
 -- lvim.keys.normal_mode["<C-k>"] = "<cmd>:TmuxNavigateUp<CR>"
 -- lvim.keys.normal_mode["<C-l>"] = "<cmd>:TmuxNavigateRight<CR>"
-
 
 -- Unset <tab> and <S-tab> mappings
 lvim.builtin.cmp.mapping["<tab>"] = nil
